@@ -19,6 +19,12 @@ export function TodoProvider({ children }) {
         setShowCreateTodo(true)
     }
 
+    const toggleTodo = (id) => {
+        setTodos(prevTodos => 
+            prevTodos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed} : false)
+        )
+    }
+
     const addTodo = (text) => {
         const newTodo = {
             id: uuid.v4(),
@@ -33,7 +39,8 @@ export function TodoProvider({ children }) {
         handleDismiss,
         openCreateTodoHandler,
         todos,
-        addTodo
+        addTodo,
+        toggleTodo
     }
     return (
         <TodoContext.Provider value={value}>
