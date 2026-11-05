@@ -1,5 +1,5 @@
 
-import { View } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import { Modal, Text, Button, TextInput } from 'react-native-paper';
 import { TodoContext } from '../../contexts/TodoContext';
 import { useContext, useState } from 'react';
@@ -17,6 +17,7 @@ const CreateTodo = ({
         addTodo(text)
         setText('')
         handleDismiss()
+        Keyboard.dismiss()
     }
 
     return (
@@ -29,6 +30,7 @@ const CreateTodo = ({
                     value={text}
                     style={{flex:1}}
                     onChangeText={text => setText(text)}
+                    onSubmitEditing={addTodoHandler}
                 />
 
                 <Button style={{justifyContent: 'center'}}icon="plus" mode="contained" onPress={addTodoHandler}>

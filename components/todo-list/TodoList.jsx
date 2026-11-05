@@ -7,7 +7,7 @@ export default function TodoList() {
     return(
         <List.Section>
         {todos.map((todo) => (
-        <List.Item key={todo.id} title={todo.text} />))}
+        <List.Item key={todo.id} title={todo.text} icon={todo.completed ? "check" : "checkbox-outline"} />))}
        
         </List.Section>
      );

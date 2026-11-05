@@ -21,7 +21,7 @@ export function TodoProvider({ children }) {
 
     const addTodo = (text) => {
         const newTodo = {
-            id: uuid.v4,
+            id: uuid.v4(),
             text,
             completed: false
         }
