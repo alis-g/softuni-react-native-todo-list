@@ -1,3 +1,4 @@
+import { uuid } from "expo";
 import { createContext, useState } from "react";
 
 export const TodoContext = createContext({
@@ -19,8 +20,12 @@ export function TodoProvider({ children }) {
     }
 
     const addTodo = (text) => {
-        console.log('adding todo:', text);
-        setTodos(prevTodos => [...prevTodos, {text}])
+        const newTodo = {
+            id: uuid.v4,
+            text,
+            completed: false
+        }
+        setTodos(prevTodos => [...prevTodos, newTodo])
     }
 
     const value = {
