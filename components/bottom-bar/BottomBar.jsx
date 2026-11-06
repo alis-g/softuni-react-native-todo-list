@@ -11,7 +11,7 @@ const MEDIUM_FAB_HEIGHT = 56;
 const BottomBar = ({
  
 }) => {
-  const {openCreateTodoHandler} = useContext(TodoContext)
+  const {openCreateTodoHandler, switchMode} = useContext(TodoContext)
   const { bottom } = useSafeAreaInsets();
   const theme = useTheme();
 
@@ -27,9 +27,8 @@ const BottomBar = ({
       safeAreaInsets={{ bottom }}
     >
       <Appbar.Action icon="archive" onPress={() => {}} />
-      <Appbar.Action icon="email" onPress={() => {}} />
-      <Appbar.Action icon="label" onPress={() => {}} />
-      <Appbar.Action icon="delete" onPress={() => {}} />
+      <Appbar.Action icon="pencil" onPress={() =>switchMode('edit')} />
+      <Appbar.Action icon="delete" onPress={() => switchMode('delete')} />
       <FAB
         mode="flat"
         size="medium"

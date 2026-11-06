@@ -1,16 +1,16 @@
 import { List } from "react-native-paper";
 
 export default function TodoItem({
-    id,
+
     text,
-    completed,
-    onPress
+    onPress,
+    iconName,
 }) {
     return (
-
         <List.Item
-        onPress={onPress}
+            onPress={onPress}
             title={text}
-            right={() => <List.Icon icon={completed ? "check" : "checkbox-blank-outline"} />} />)
-
+            right={() => <List.Icon icon={iconName} />}
+        />
+    );
 }
